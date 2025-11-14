@@ -328,27 +328,29 @@ lerobot-train \
 ```python
 # 伪代码
 for step in range(total_steps):
-    # 1. 采样批次
+    # 每一次循环就像“训练日记”的一页：做一次练习并复盘
+    # 1. 采样批次 —— 像从练习册抽一页题目（取一批数据）
     batch = dataloader.sample()
 
-    # 2. 前向传播
+    # 2. 前向传播 —— 像“做题”：把题目（batch）喂给策略，得到答案
     output = policy(batch)
 
-    # 3. 计算损失
+    # 3. 计算损失 —— 像“对答案”：和标准答案比对，看看错了多少（误差）
     loss = criterion(output["actions"], batch["action"])
 
-    # 4. 反向传播
+    # 4. 反向传播 —— 像“找到错因并通知每个步骤该怎么改”（把误差往回传）
     loss.backward()
 
-    # 5. 优化器步进
+    # 5. 优化器步进 —— 像“调整方法”：根据反馈微调参数；
+    #    清零梯度则像擦干净黑板，避免上一次的粉笔灰影响下一次练习
     optimizer.step()
     optimizer.zero_grad()
 
-    # 6. 日志记录
+    # 6. 日志记录 —— 像“记学习曲线”：定期把分数写进日志方便复盘
     if step % log_freq == 0:
         wandb.log({"loss": loss.item()})
 
-    # 7. 保存检查点
+    # 7. 保存检查点 —— 像“游戏存档”：到达里程碑就保存，防止进度丢失
     if step % save_freq == 0:
         policy.save_pretrained(f"checkpoint-{step}")
 ```
