@@ -1,0 +1,509 @@
+<mxfile host="app.diagrams.net" modified="2025-11-20T00:00:00.000Z" agent="Claude Code" version="24.0.0">
+  <diagram name="LeRobot Architecture" id="lerobot-architecture">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="2000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 标题 -->
+        <mxCell id="title" value="LeRobot 项目架构图" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=28;fontStyle=1;fontColor=#1a237e;" vertex="1" parent="1">
+          <mxGeometry x="650" y="20" width="700" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 用户接口层 ==================== -->
+        <mxCell id="layer-title-1" value="用户接口层 (User Interface Layer)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#e65100;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- CLI工具容器 -->
+        <mxCell id="cli-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#e65100;strokeWidth=2;dashed=1;dashPattern=8 8;" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="1900" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- lerobot-train -->
+        <mxCell id="cli-train" value="&lt;b&gt;lerobot-train&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: lerobot_train.py&lt;br&gt;函数: train()&lt;br&gt;     update_policy()&lt;br&gt;&lt;br&gt;功能: 模型训练&lt;br&gt;参数: --config-path&lt;br&gt;      --batch-size&lt;br&gt;      --steps&lt;br&gt;      --device" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e65100;strokeColor=#bf360c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="140" width="170" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- lerobot-eval -->
+        <mxCell id="cli-eval" value="&lt;b&gt;lerobot-eval&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: lerobot_eval.py&lt;br&gt;函数: eval_policy()&lt;br&gt;     rollout()&lt;br&gt;&lt;br&gt;功能: 策略评估&lt;br&gt;参数: --pretrained-path&lt;br&gt;      --num-episodes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e65100;strokeColor=#bf360c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="260" y="140" width="170" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- lerobot-record -->
+        <mxCell id="cli-record" value="&lt;b&gt;lerobot-record&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: lerobot_record.py&lt;br&gt;函数: record_dataset()&lt;br&gt;&lt;br&gt;功能: 数据采集&lt;br&gt;参数: --robot&lt;br&gt;      --teleoperator&lt;br&gt;      --repo-id&lt;br&gt;      --num-episodes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e65100;strokeColor=#bf360c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="450" y="140" width="170" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- lerobot-replay -->
+        <mxCell id="cli-replay" value="&lt;b&gt;lerobot-replay&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: lerobot_replay.py&lt;br&gt;函数: replay_dataset()&lt;br&gt;&lt;br&gt;功能: 数据重放&lt;br&gt;参数: --robot&lt;br&gt;      --repo-id&lt;br&gt;      --episode-index" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e65100;strokeColor=#bf360c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="640" y="140" width="170" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- lerobot-teleoperate -->
+        <mxCell id="cli-teleoperate" value="&lt;b&gt;lerobot-teleoperate&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: lerobot_teleoperate.py&lt;br&gt;&lt;br&gt;功能: 遥操作控制&lt;br&gt;参数: --robot&lt;br&gt;      --teleoperator" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e65100;strokeColor=#bf360c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="830" y="140" width="170" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- lerobot-calibrate -->
+        <mxCell id="cli-calibrate" value="&lt;b&gt;lerobot-calibrate&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: lerobot_calibrate.py&lt;br&gt;&lt;br&gt;功能: 机器人校准&lt;br&gt;参数: --robot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e65100;strokeColor=#bf360c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="140" width="170" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- lerobot-dataset-viz -->
+        <mxCell id="cli-viz" value="&lt;b&gt;lerobot-dataset-viz&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: lerobot_dataset_viz.py&lt;br&gt;&lt;br&gt;功能: 数据集可视化&lt;br&gt;参数: --repo-id&lt;br&gt;      --episode-index&lt;br&gt;      --mode" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e65100;strokeColor=#bf360c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="140" width="170" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- 其他工具 -->
+        <mxCell id="cli-others" value="&lt;b&gt;其他工具&lt;/b&gt;&lt;br&gt;&lt;br&gt;• lerobot-find-cameras&lt;br&gt;• lerobot-find-port&lt;br&gt;• lerobot-setup-motors&lt;br&gt;• lerobot-find-joint-limits&lt;br&gt;• lerobot-edit-dataset&lt;br&gt;• lerobot-info" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff6f00;strokeColor=#bf360c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="140" width="180" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Python API -->
+        <mxCell id="python-api" value="&lt;b&gt;Python API&lt;/b&gt;&lt;br&gt;&lt;br&gt;• lerobot.make_policy()&lt;br&gt;• lerobot.LeRobotDataset()&lt;br&gt;• lerobot.make_robot_from_config()&lt;br&gt;• lerobot.make_env()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff8f00;strokeColor=#bf360c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="140" width="330" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 核心功能层 ==================== -->
+        <mxCell id="layer-title-2" value="核心功能层 (Core Functionality Layer)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#7b1fa2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="310" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Policies 模块 -->
+        <mxCell id="policies-module" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f3e5f5;strokeColor=#7b1fa2;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="50" y="350" width="420" height="420" as="geometry" />
+        </mxCell>
+
+        <mxCell id="policies-title" value="&lt;b&gt;Policies 策略模块&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/policies/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#4a148c;" vertex="1" parent="1">
+          <mxGeometry x="60" y="360" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 策略工厂 -->
+        <mxCell id="policy-factory" value="&lt;b&gt;策略工厂&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: factory.py&lt;br&gt;函数:&lt;br&gt;• get_policy_class()&lt;br&gt;• make_policy()&lt;br&gt;• make_policy_config()&lt;br&gt;• make_pre_post_processors()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7b1fa2;strokeColor=#4a148c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="70" y="400" width="190" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- 预训练基类 -->
+        <mxCell id="policy-pretrained" value="&lt;b&gt;预训练基类&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: pretrained.py&lt;br&gt;类: PreTrainedPolicy&lt;br&gt;方法:&lt;br&gt;• from_pretrained()&lt;br&gt;• _save_pretrained()&lt;br&gt;• forward()&lt;br&gt;• select_action()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#7b1fa2;strokeColor=#4a148c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="270" y="400" width="190" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- ACT策略 -->
+        <mxCell id="policy-act" value="&lt;b&gt;ACT (Action Chunking)&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: act/modeling_act.py&lt;br&gt;类: ACTPolicy&lt;br&gt;配置:&lt;br&gt;• n_obs_steps: int&lt;br&gt;• chunk_size: int&lt;br&gt;• use_vae: bool&lt;br&gt;• latent_dim: int" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9c27b0;strokeColor=#4a148c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="70" y="535" width="190" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Diffusion策略 -->
+        <mxCell id="policy-diffusion" value="&lt;b&gt;Diffusion Policy&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: diffusion/modeling_diffusion.py&lt;br&gt;类: DiffusionPolicy&lt;br&gt;配置:&lt;br&gt;• horizon: int&lt;br&gt;• num_inference_steps: int&lt;br&gt;• noise_scheduler_type: str" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#9c27b0;strokeColor=#4a148c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="270" y="535" width="190" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- 其他策略 -->
+        <mxCell id="policy-others" value="&lt;b&gt;其他策略&lt;/b&gt;&lt;br&gt;&lt;br&gt;• TDMPC (tdmpc/)&lt;br&gt;• VQBeT (vqbet/)&lt;br&gt;• PI0/PI05 (pi0/, pi05/)&lt;br&gt;• SmolVLA (smolvla/)&lt;br&gt;• Gr00t (groot/)&lt;br&gt;• SAC (sac/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ab47bc;strokeColor=#4a148c;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="70" y="655" width="390" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Datasets 模块 -->
+        <mxCell id="datasets-module" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f7fa;strokeColor=#0097a7;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="500" y="350" width="420" height="420" as="geometry" />
+        </mxCell>
+
+        <mxCell id="datasets-title" value="&lt;b&gt;Datasets 数据集模块&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/datasets/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#006064;" vertex="1" parent="1">
+          <mxGeometry x="510" y="360" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- LeRobotDataset -->
+        <mxCell id="dataset-lerobot" value="&lt;b&gt;LeRobotDataset&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: lerobot_dataset.py&lt;br&gt;类: LeRobotDataset&lt;br&gt;方法:&lt;br&gt;• __getitem__()&lt;br&gt;• load_episode()&lt;br&gt;• set_delta_timestamps()&lt;br&gt;&lt;br&gt;配置:&lt;br&gt;• repo_id: str&lt;br&gt;• root: Path&lt;br&gt;• delta_timestamps: dict" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0097a7;strokeColor=#006064;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="400" width="190" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- 数据集元数据 -->
+        <mxCell id="dataset-metadata" value="&lt;b&gt;数据集元数据&lt;/b&gt;&lt;br&gt;&lt;br&gt;类: LeRobotDatasetMetadata&lt;br&gt;属性:&lt;br&gt;• info: dict&lt;br&gt;• episodes: DataFrame&lt;br&gt;• stats: dict&lt;br&gt;• tasks: DataFrame" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00acc1;strokeColor=#006064;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="720" y="400" width="190" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- 流式数据集 -->
+        <mxCell id="dataset-streaming" value="&lt;b&gt;流式数据集&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: streaming_dataset.py&lt;br&gt;类: StreamingLeRobotDataset&lt;br&gt;功能: 大规模数据集流式加载" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00acc1;strokeColor=#006064;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="565" width="190" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- 数据处理工具 -->
+        <mxCell id="dataset-tools" value="&lt;b&gt;数据处理工具&lt;/b&gt;&lt;br&gt;&lt;br&gt;• transforms.py (ImageTransforms)&lt;br&gt;• sampler.py (EpisodeAwareSampler)&lt;br&gt;• video_utils.py (视频编解码)&lt;br&gt;• compute_stats.py (统计计算)&lt;br&gt;• image_writer.py (异步写入)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00acc1;strokeColor=#006064;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="720" y="565" width="190" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- 数据集工厂 -->
+        <mxCell id="dataset-factory" value="&lt;b&gt;数据集工厂&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: factory.py&lt;br&gt;函数:&lt;br&gt;• make_dataset()&lt;br&gt;• resolve_delta_timestamps()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0097a7;strokeColor=#006064;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="520" y="670" width="190" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- 数据格式 -->
+        <mxCell id="dataset-format" value="&lt;b&gt;数据格式 (v3.0)&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Parquet 数据帧&lt;br&gt;• MP4 视频编码&lt;br&gt;• JSON 元数据&lt;br&gt;• Safetensors 模型权重" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00acc1;strokeColor=#006064;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="720" y="670" width="190" height="85" as="geometry" />
+        </mxCell>
+
+        <!-- Processor 模块 -->
+        <mxCell id="processor-module" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e3f2fd;strokeColor=#3949ab;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="950" y="350" width="420" height="240" as="geometry" />
+        </mxCell>
+
+        <mxCell id="processor-title" value="&lt;b&gt;Processor 处理器模块&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/processor/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#1a237e;" vertex="1" parent="1">
+          <mxGeometry x="960" y="360" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 处理流水线 -->
+        <mxCell id="processor-pipeline" value="&lt;b&gt;处理流水线&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: pipeline.py&lt;br&gt;类:&lt;br&gt;• PolicyProcessorPipeline&lt;br&gt;• RobotProcessorPipeline&lt;br&gt;• ProcessorStep&lt;br&gt;&lt;br&gt;功能: 可组合的处理步骤链" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3949ab;strokeColor=#1a237e;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="970" y="400" width="190" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- 处理步骤 -->
+        <mxCell id="processor-steps" value="&lt;b&gt;处理步骤&lt;/b&gt;&lt;br&gt;&lt;br&gt;• normalize_processor.py&lt;br&gt;  - NormalizerProcessorStep&lt;br&gt;  - UnnormalizerProcessorStep&lt;br&gt;• device_processor.py&lt;br&gt;• observation_processor.py&lt;br&gt;• delta_action_processor.py&lt;br&gt;• tokenizer_processor.py" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5c6bc0;strokeColor=#1a237e;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="400" width="190" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- 数据转换 -->
+        <mxCell id="processor-converters" value="&lt;b&gt;数据转换&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: converters.py&lt;br&gt;功能:&lt;br&gt;• 策略格式 ↔ 机器人格式&lt;br&gt;• 归一化/反归一化&lt;br&gt;• 设备转换 (CPU/GPU)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#5c6bc0;strokeColor=#1a237e;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="970" y="545" width="390" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Configs 模块 -->
+        <mxCell id="configs-module" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eceff1;strokeColor=#546e7a;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="950" y="610" width="420" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="configs-title" value="&lt;b&gt;Configs 配置模块&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/configs/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#263238;" vertex="1" parent="1">
+          <mxGeometry x="960" y="620" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 训练配置 -->
+        <mxCell id="config-train" value="&lt;b&gt;训练配置&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: train.py&lt;br&gt;类: TrainPipelineConfig&lt;br&gt;参数:&lt;br&gt;• dataset: DatasetConfig&lt;br&gt;• policy: PolicyConfig&lt;br&gt;• optimizer: OptimizerConfig&lt;br&gt;• scheduler: LRSchedulerConfig" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#546e7a;strokeColor=#263238;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="970" y="660" width="190" height="95" as="geometry" />
+        </mxCell>
+
+        <!-- 其他配置 -->
+        <mxCell id="config-others" value="&lt;b&gt;其他配置&lt;/b&gt;&lt;br&gt;&lt;br&gt;• policies.py (PreTrainedConfig)&lt;br&gt;• eval.py (EvalPipelineConfig)&lt;br&gt;• default.py (DatasetConfig, WandBConfig)&lt;br&gt;• types.py (FeatureType, PolicyFeature)&lt;br&gt;• parser.py (CLI参数解析)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#607d8b;strokeColor=#263238;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="660" width="190" height="95" as="geometry" />
+        </mxCell>
+
+        <!-- Envs 和 Optim 模块 -->
+        <mxCell id="envs-optim-module" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#388e3c;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="350" width="530" height="420" as="geometry" />
+        </mxCell>
+
+        <mxCell id="envs-optim-title" value="&lt;b&gt;Environments &amp; Optimization&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/envs/, /src/lerobot/optim/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="360" width="510" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 环境工厂 -->
+        <mxCell id="env-factory" value="&lt;b&gt;环境工厂&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: envs/factory.py&lt;br&gt;函数:&lt;br&gt;• make_env()&lt;br&gt;• make_env_config()&lt;br&gt;&lt;br&gt;支持的环境:&lt;br&gt;• Aloha&lt;br&gt;• PushT&lt;br&gt;• Libero&lt;br&gt;• MetaWorld" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#388e3c;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="400" width="240" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- 优化器 -->
+        <mxCell id="optim-optimizer" value="&lt;b&gt;优化器&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: optim/optimizers.py&lt;br&gt;类: OptimizerConfig&lt;br&gt;&lt;br&gt;支持:&lt;br&gt;• Adam&lt;br&gt;• AdamW&lt;br&gt;• SGD&lt;br&gt;&lt;br&gt;参数:&lt;br&gt;• lr: float&lt;br&gt;• weight_decay: float&lt;br&gt;• betas: Tuple[float, float]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66bb6a;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1675" y="400" width="240" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- 学习率调度器 -->
+        <mxCell id="optim-scheduler" value="&lt;b&gt;学习率调度器&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: optim/schedulers.py&lt;br&gt;类: LRSchedulerConfig&lt;br&gt;&lt;br&gt;支持:&lt;br&gt;• Cosine Annealing&lt;br&gt;• Linear Warmup&lt;br&gt;• StepLR&lt;br&gt;• ExponentialLR&lt;br&gt;&lt;br&gt;参数:&lt;br&gt;• warmup_steps: int&lt;br&gt;• total_steps: int" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66bb6a;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="565" width="240" height="190" as="geometry" />
+        </mxCell>
+
+        <!-- 优化器工厂 -->
+        <mxCell id="optim-factory" value="&lt;b&gt;优化器工厂&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: optim/factory.py&lt;br&gt;函数:&lt;br&gt;• make_optimizer_and_scheduler()&lt;br&gt;&lt;br&gt;功能:&lt;br&gt;根据配置创建优化器和学习率调度器实例" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#388e3c;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1675" y="565" width="240" height="190" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 硬件接口层 ==================== -->
+        <mxCell id="layer-title-3" value="硬件接口层 (Hardware Interface Layer)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#2e7d32;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 硬件接口容器 -->
+        <mxCell id="hardware-container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f1f8e9;strokeColor=#2e7d32;strokeWidth=2;dashed=1;dashPattern=8 8;" vertex="1" parent="1">
+          <mxGeometry x="50" y="840" width="1880" height="280" as="geometry" />
+        </mxCell>
+
+        <!-- Robots 模块 -->
+        <mxCell id="robots-module" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="70" y="860" width="450" height="240" as="geometry" />
+        </mxCell>
+
+        <mxCell id="robots-title" value="&lt;b&gt;Robots 机器人模块&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/robots/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="80" y="870" width="430" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Robot 基类 -->
+        <mxCell id="robot-base" value="&lt;b&gt;Robot 基类&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: robot.py&lt;br&gt;类: Robot (抽象基类)&lt;br&gt;方法:&lt;br&gt;• connect()&lt;br&gt;• calibrate()&lt;br&gt;• get_observation()&lt;br&gt;• send_action()&lt;br&gt;• disconnect()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2e7d32;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="90" y="910" width="190" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- 机器人实现 -->
+        <mxCell id="robot-implementations" value="&lt;b&gt;机器人实现&lt;/b&gt;&lt;br&gt;&lt;br&gt;• SO100/SO101 Follower&lt;br&gt;  (so100_follower/, so101_follower/)&lt;br&gt;• Bi-SO100 双臂&lt;br&gt;  (bi_so100_follower/)&lt;br&gt;• Koch (koch_follower/)&lt;br&gt;• HopeJR 人形机器人&lt;br&gt;  (hope_jr/hope_jr_arm.py, hope_jr_hand.py)&lt;br&gt;• Reachy2 (reachy2/)&lt;br&gt;• LeKiwi 移动平台 (lekiwi/)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#43a047;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="290" y="910" width="220" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- 机器人工厂 -->
+        <mxCell id="robot-factory" value="&lt;b&gt;机器人工厂&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: __init__.py&lt;br&gt;函数:&lt;br&gt;• make_robot_from_config()&lt;br&gt;&lt;br&gt;配置:&lt;br&gt;• config.py (RobotConfig)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2e7d32;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="90" y="1050" width="420" height="35" as="geometry" />
+        </mxCell>
+
+        <!-- Motors 模块 -->
+        <mxCell id="motors-module" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="540" y="860" width="320" height="240" as="geometry" />
+        </mxCell>
+
+        <mxCell id="motors-title" value="&lt;b&gt;Motors 电机模块&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/motors/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="550" y="870" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Dynamixel -->
+        <mxCell id="motor-dynamixel" value="&lt;b&gt;Dynamixel 舵机&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: dynamixel/dynamixel.py&lt;br&gt;类: DynamixelMotorsBus&lt;br&gt;&lt;br&gt;功能:&lt;br&gt;• 电机总线管理&lt;br&gt;• 位置/速度控制&lt;br&gt;• 力矩读取&lt;br&gt;• 批量读写&lt;br&gt;&lt;br&gt;配置:&lt;br&gt;• port: str&lt;br&gt;• motors: dict[int, MotorConfig]" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2e7d32;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="560" y="910" width="140" height="175" as="geometry" />
+        </mxCell>
+
+        <!-- Feetech -->
+        <mxCell id="motor-feetech" value="&lt;b&gt;Feetech 舵机&lt;/b&gt;&lt;br&gt;&lt;br&gt;目录: feetech/&lt;br&gt;&lt;br&gt;功能:&lt;br&gt;支持Feetech系列舵机&lt;br&gt;&lt;br&gt;协议:&lt;br&gt;• STS系列&lt;br&gt;• SCS系列" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#43a047;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="710" y="910" width="140" height="175" as="geometry" />
+        </mxCell>
+
+        <!-- Cameras 模块 -->
+        <mxCell id="cameras-module" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="880" y="860" width="320" height="240" as="geometry" />
+        </mxCell>
+
+        <mxCell id="cameras-title" value="&lt;b&gt;Cameras 摄像头模块&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/cameras/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="890" y="870" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- OpenCV Camera -->
+        <mxCell id="camera-opencv" value="&lt;b&gt;OpenCV 摄像头&lt;/b&gt;&lt;br&gt;&lt;br&gt;文件: opencv/camera_opencv.py&lt;br&gt;类: OpenCVCamera&lt;br&gt;&lt;br&gt;功能:&lt;br&gt;• 通用USB摄像头支持&lt;br&gt;• 图像采集&lt;br&gt;• 分辨率配置&lt;br&gt;&lt;br&gt;配置:&lt;br&gt;• camera_index: int&lt;br&gt;• fps: int&lt;br&gt;• width/height: int" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2e7d32;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="900" y="910" width="140" height="175" as="geometry" />
+        </mxCell>
+
+        <!-- RealSense -->
+        <mxCell id="camera-realsense" value="&lt;b&gt;RealSense 深度相机&lt;/b&gt;&lt;br&gt;&lt;br&gt;目录: realsense/&lt;br&gt;&lt;br&gt;功能:&lt;br&gt;• RGB-D图像采集&lt;br&gt;• 深度数据&lt;br&gt;• 点云生成&lt;br&gt;&lt;br&gt;支持型号:&lt;br&gt;• D435/D435i&lt;br&gt;• D455" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#43a047;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="910" width="140" height="175" as="geometry" />
+        </mxCell>
+
+        <!-- Teleoperators 模块 -->
+        <mxCell id="teleoperators-module" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="860" width="700" height="240" as="geometry" />
+        </mxCell>
+
+        <mxCell id="teleoperators-title" value="&lt;b&gt;Teleoperators 遥操作模块&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/teleoperators/" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=13;fontStyle=1;fontColor=#1b5e20;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="870" width="660" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Leader 遥操作器 -->
+        <mxCell id="teleop-leaders" value="&lt;b&gt;Leader 遥操作器&lt;/b&gt;&lt;br&gt;&lt;br&gt;• SO100 Leader (so100_leader/)&lt;br&gt;• SO101 Leader (so101_leader/)&lt;br&gt;• Bi-SO100 Leader (bi_so100_leader/)&lt;br&gt;• Koch Leader (koch_leader/)&lt;br&gt;&lt;br&gt;功能:&lt;br&gt;主控端机械臂，用于演示操作" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2e7d32;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="910" width="200" height="175" as="geometry" />
+        </mxCell>
+
+        <!-- 输入设备 -->
+        <mxCell id="teleop-inputs" value="&lt;b&gt;输入设备&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Keyboard (keyboard/)&lt;br&gt;  键盘控制&lt;br&gt;&lt;br&gt;• Gamepad (gamepad/)&lt;br&gt;  游戏手柄控制&lt;br&gt;&lt;br&gt;• Phone (phone/)&lt;br&gt;  手机控制" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#43a047;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="910" width="200" height="175" as="geometry" />
+        </mxCell>
+
+        <!-- 专用遥操作器 -->
+        <mxCell id="teleop-special" value="&lt;b&gt;专用遥操作器&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Homunculus (homunculus/)&lt;br&gt;  全身遥操作系统&lt;br&gt;&lt;br&gt;• Reachy2 Teleoperator&lt;br&gt;  (reachy2_teleoperator/)&lt;br&gt;  Reachy2专用遥操作" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#43a047;strokeColor=#1b5e20;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1660" y="910" width="250" height="175" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 支持层 ==================== -->
+        <mxCell id="layer-title-4" value="支持层 (Support Layer)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;fontColor=#455a64;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1150" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- RL 模块 -->
+        <mxCell id="rl-module" value="&lt;b&gt;强化学习 (RL)&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/rl/&lt;br&gt;&lt;br&gt;文件:&lt;br&gt;• actor.py (RL Actor)&lt;br&gt;• learner.py (RL Learner)&lt;br&gt;• buffer.py (经验回放缓冲)&lt;br&gt;• gym_manipulator.py (机器人操作环境)&lt;br&gt;&lt;br&gt;功能:&lt;br&gt;强化学习训练流程支持" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#455a64;strokeColor=#263238;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1190" width="290" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- 异步推理 -->
+        <mxCell id="async-module" value="&lt;b&gt;异步推理 (Async Inference)&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/async_inference/&lt;br&gt;&lt;br&gt;文件:&lt;br&gt;• policy_server.py (gRPC策略服务器)&lt;br&gt;  - 策略加载和推理服务&lt;br&gt;• robot_client.py (gRPC机器人客户端)&lt;br&gt;  - 机器人连接和控制&lt;br&gt;• helpers.py (辅助函数)&lt;br&gt;&lt;br&gt;功能:&lt;br&gt;• 策略服务器-客户端架构&lt;br&gt;• 异步通信降低延迟&lt;br&gt;• 支持分布式部署" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#455a64;strokeColor=#263238;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="360" y="1190" width="320" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- 传输层 -->
+        <mxCell id="transport-module" value="&lt;b&gt;传输层 (Transport)&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/transport/&lt;br&gt;&lt;br&gt;文件:&lt;br&gt;• services.proto (gRPC协议定义)&lt;br&gt;• services_pb2*.py (生成的gRPC代码)&lt;br&gt;&lt;br&gt;协议:&lt;br&gt;• PolicyService (策略推理服务)&lt;br&gt;• RobotService (机器人控制服务)&lt;br&gt;&lt;br&gt;数据格式:&lt;br&gt;• Protobuf序列化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#455a64;strokeColor=#263238;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="700" y="1190" width="280" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- 工具模块 -->
+        <mxCell id="utils-module" value="&lt;b&gt;工具模块 (Utils)&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/utils/&lt;br&gt;&lt;br&gt;文件:&lt;br&gt;• train_utils.py (训练工具)&lt;br&gt;• control_utils.py (控制工具)&lt;br&gt;• visualization_utils.py (可视化)&lt;br&gt;• robot_utils.py (机器人工具)&lt;br&gt;• logging_utils.py (日志工具)&lt;br&gt;&lt;br&gt;功能:&lt;br&gt;• 通用辅助函数&lt;br&gt;• 日志和可视化&lt;br&gt;• 性能监控" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#607d8b;strokeColor=#263238;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="1190" width="280" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- 模型组件 -->
+        <mxCell id="model-module" value="&lt;b&gt;模型组件 (Model)&lt;/b&gt;&lt;br&gt;路径: /src/lerobot/model/&lt;br&gt;&lt;br&gt;文件:&lt;br&gt;• kinematics.py (运动学模块)&lt;br&gt;  - 正运动学&lt;br&gt;  - 逆运动学&lt;br&gt;  - 雅可比矩阵计算&lt;br&gt;&lt;br&gt;功能:&lt;br&gt;• 机器人运动学计算&lt;br&gt;• 轨迹规划支持&lt;br&gt;• 碰撞检测" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#607d8b;strokeColor=#263238;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="1190" width="280" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- HuggingFace 集成 -->
+        <mxCell id="huggingface-integration" value="&lt;b&gt;HuggingFace 集成&lt;/b&gt;&lt;br&gt;&lt;br&gt;• HubMixin 基类&lt;br&gt;• 模型上传/下载&lt;br&gt;• 数据集上传/下载&lt;br&gt;• Safetensors 格式&lt;br&gt;• 版本管理&lt;br&gt;&lt;br&gt;Hub: huggingface.co/lerobot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#607d8b;strokeColor=#263238;strokeWidth=2;fontColor=#ffffff;align=left;verticalAlign=top;spacing=10;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="1190" width="330" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 数据流连线 ==================== -->
+
+        <!-- CLI -> Policies -->
+        <mxCell id="edge-cli-policies" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7b1fa2;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="cli-train" target="policies-module">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-cli-policies-label" value="训练" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#7b1fa2;fontStyle=1;backgroundColor=#f3e5f5;" vertex="1" connectable="0" parent="edge-cli-policies">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- CLI -> Datasets -->
+        <mxCell id="edge-cli-datasets" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0097a7;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="cli-record" target="datasets-module">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-cli-datasets-label" value="数据采集" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#0097a7;fontStyle=1;backgroundColor=#e0f7fa;" vertex="1" connectable="0" parent="edge-cli-datasets">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- CLI -> Robots -->
+        <mxCell id="edge-cli-robots" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2e7d32;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="cli-teleoperate" target="robots-module">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-cli-robots-label" value="遥操作" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#2e7d32;fontStyle=1;backgroundColor=#f1f8e9;" vertex="1" connectable="0" parent="edge-cli-robots">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Datasets -> Policies -->
+        <mxCell id="edge-datasets-policies" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#0097a7;strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;" edge="1" parent="1" source="dataset-lerobot" target="policy-factory">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-datasets-policies-label" value="训练数据" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#0097a7;fontStyle=1;backgroundColor=#e0f7fa;" vertex="1" connectable="0" parent="edge-datasets-policies">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Policies -> Processor -->
+        <mxCell id="edge-policies-processor" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#3949ab;strokeWidth=2;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="policies-module" target="processor-pipeline">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-policies-processor-label" value="数据处理" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#3949ab;fontStyle=1;backgroundColor=#e3f2fd;" vertex="1" connectable="0" parent="edge-policies-processor">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Processor -> Configs -->
+        <mxCell id="edge-processor-configs" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#546e7a;strokeWidth=2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="processor-module" target="configs-module">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-processor-configs-label" value="配置管理" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#546e7a;fontStyle=1;backgroundColor=#eceff1;" vertex="1" connectable="0" parent="edge-processor-configs">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Robots -> Motors -->
+        <mxCell id="edge-robots-motors" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2e7d32;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="robot-base" target="motor-dynamixel">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-robots-motors-label" value="电机控制" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#2e7d32;fontStyle=1;backgroundColor=#c8e6c9;" vertex="1" connectable="0" parent="edge-robots-motors">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Robots -> Cameras -->
+        <mxCell id="edge-robots-cameras" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2e7d32;strokeWidth=2;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="robots-module" target="camera-opencv">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-robots-cameras-label" value="视觉输入" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#2e7d32;fontStyle=1;backgroundColor=#c8e6c9;" vertex="1" connectable="0" parent="edge-robots-cameras">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Teleoperators -> Robots -->
+        <mxCell id="edge-teleop-robots" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2e7d32;strokeWidth=2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;dashed=1;dashPattern=8 8;curved=1;" edge="1" parent="1" source="teleop-leaders" target="robots-module">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-teleop-robots-label" value="遥操作指令" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#2e7d32;fontStyle=1;backgroundColor=#f1f8e9;" vertex="1" connectable="0" parent="edge-teleop-robots">
+          <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Policies -> Async -->
+        <mxCell id="edge-policies-async" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7b1fa2;strokeWidth=2;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;curved=1;" edge="1" parent="1" source="policies-module" target="async-module">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-policies-async-label" value="策略推理" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#7b1fa2;fontStyle=1;backgroundColor=#f3e5f5;" vertex="1" connectable="0" parent="edge-policies-async">
+          <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 图例 -->
+        <mxCell id="legend-title" value="&lt;b&gt;图例&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1390" width="100" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-line-solid" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="1435" as="sourcePoint" />
+            <mxPoint x="150" y="1435" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-line-solid-label" value="直接依赖" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="160" y="1420" width="100" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend-line-dashed" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;strokeWidth=2;dashed=1;dashPattern=8 8;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="70" y="1465" as="sourcePoint" />
+            <mxPoint x="150" y="1465" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend-line-dashed-label" value="数据流" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="160" y="1450" width="100" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 技术栈说明 -->
+        <mxCell id="tech-stack" value="&lt;b&gt;核心技术栈&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Python 3.10+&lt;br&gt;• PyTorch 2.2+&lt;br&gt;• HuggingFace Ecosystem&lt;br&gt;• gRPC / Protobuf&lt;br&gt;• OpenCV / RealSense&lt;br&gt;• Dynamixel SDK&lt;br&gt;• Gymnasium&lt;br&gt;• Weights &amp; Biases" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#000000;strokeWidth=2;align=left;verticalAlign=top;spacing=10;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1390" width="250" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- 数据格式说明 -->
+        <mxCell id="data-formats" value="&lt;b&gt;数据格式&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Parquet (Apache Arrow)&lt;br&gt;• MP4 (视频编码)&lt;br&gt;• JSON/JSONL (元数据)&lt;br&gt;• Safetensors (模型权重)&lt;br&gt;• Protobuf (gRPC通信)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#000000;strokeWidth=2;align=left;verticalAlign=top;spacing=10;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="570" y="1390" width="250" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- 配色方案说明 -->
+        <mxCell id="color-scheme" value="&lt;b&gt;配色方案&lt;/b&gt;&lt;br&gt;&lt;br&gt;🟠 用户接口层&lt;br&gt;🟣 策略模块&lt;br&gt;🔵 处理器/配置&lt;br&gt;🔷 数据集模块&lt;br&gt;🟢 环境/优化&lt;br&gt;🟩 硬件接口&lt;br&gt;⬛ 支持工具" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#000000;strokeWidth=2;align=left;verticalAlign=top;spacing=10;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="840" y="1390" width="250" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- 版本信息 -->
+        <mxCell id="version-info" value="&lt;b&gt;LeRobot v0.4.1&lt;/b&gt;&lt;br&gt;&lt;br&gt;组织: Hugging Face&lt;br&gt;License: Apache 2.0&lt;br&gt;数据集格式: v3.0&lt;br&gt;&lt;br&gt;Hub: huggingface.co/lerobot&lt;br&gt;GitHub: github.com/huggingface/lerobot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#000000;strokeWidth=2;align=left;verticalAlign=top;spacing=10;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="1390" width="330" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- 架构特点 -->
+        <mxCell id="architecture-features" value="&lt;b&gt;架构特点&lt;/b&gt;&lt;br&gt;&lt;br&gt;✓ 模块化设计&lt;br&gt;✓ 工厂模式&lt;br&gt;✓ 流水线架构&lt;br&gt;✓ Hub集成&lt;br&gt;✓ 异步推理&lt;br&gt;✓ 多策略支持&lt;br&gt;✓ 硬件抽象&lt;br&gt;✓ 完整工具链" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fafafa;strokeColor=#000000;strokeWidth=2;align=left;verticalAlign=top;spacing=10;fontSize=11;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="1390" width="250" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- 底部说明 -->
+        <mxCell id="footer" value="本架构图展示了LeRobot项目的完整结构，包括用户接口、核心功能、硬件接口和支持层。每个模块都标注了关键文件、类、函数和配置参数。" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontColor=#757575;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1560" width="1880" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
